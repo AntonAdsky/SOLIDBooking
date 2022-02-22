@@ -5,6 +5,8 @@ import classes.flyTickets.FlyTicketTwo;
 import interfaces.FlyTicket;
 import interfaces.OrderAbstractFactory;
 
+import java.util.ArrayList;
+
 public class FlyTicketsOrderFactory implements OrderAbstractFactory {
     FlyTicket chosenFlyTicket = null;
 
@@ -18,6 +20,14 @@ public class FlyTicketsOrderFactory implements OrderAbstractFactory {
             chosenFlyTicket = FlyTicketTwo.getInstance();
         }
         return chosenFlyTicket;
+    }
+
+    @Override
+    public ArrayList<String>getAll() {
+        ArrayList<String> flyTickets = new ArrayList<>();
+        flyTickets.add(FlyTicketOne.name);
+        flyTickets.add(FlyTicketTwo.name);
+        return flyTickets;
     }
 
 

@@ -5,6 +5,8 @@ import classes.hotels.HotelTwo;
 import interfaces.Hotel;
 import interfaces.OrderAbstractFactory;
 
+import java.util.ArrayList;
+
 public class HotelOrderFactory implements OrderAbstractFactory {
     Hotel chosenHotel = null;
 
@@ -20,6 +22,13 @@ public class HotelOrderFactory implements OrderAbstractFactory {
         return chosenHotel;
     }
 
+    @Override
+    public ArrayList<String> getAll() {
+        ArrayList<String> hotels = new ArrayList<>();
+        hotels.add(HotelOne.name);
+        hotels.add(HotelTwo.name);
+        return hotels;
+    }
 
     @Override
     public void searchFree() {
