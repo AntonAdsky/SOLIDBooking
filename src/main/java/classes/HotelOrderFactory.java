@@ -6,6 +6,8 @@ import interfaces.Hotel;
 import interfaces.OrderAbstractFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HotelOrderFactory implements OrderAbstractFactory {
     Hotel chosenHotel = null;
@@ -23,10 +25,10 @@ public class HotelOrderFactory implements OrderAbstractFactory {
     }
 
     @Override
-    public ArrayList<String> getAll() {
-        ArrayList<String> hotels = new ArrayList<>();
-        hotels.add(HotelOne.name);
-        hotels.add(HotelTwo.name);
+    public Map<String, ArrayList<Integer>> getAll() {
+        Map<String, ArrayList<Integer>> hotels = new HashMap();
+        hotels.put(HotelOne.name, HotelOne.getInstance().getFree());
+        hotels.put(HotelTwo.name, HotelTwo.getInstance().getFree());
         return hotels;
     }
 

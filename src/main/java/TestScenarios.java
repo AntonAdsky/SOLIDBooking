@@ -8,6 +8,7 @@ import classes.hotels.HotelTwo;
 public class TestScenarios {
     // test client 1
     public static void  client1() {
+        System.out.println("--- Client 1 start making order ---");
         Client client = new Client();
         client.getMakeOrder(FabricProvider.HOTEL);
         client.search();
@@ -25,6 +26,7 @@ public class TestScenarios {
 
     // test client 2
     public static void client2() {
+        System.out.println("--- Client 2 start making order ---");
         Client client = new Client();
         client.getMakeOrder(FabricProvider.FLY_TICKETS);
         client.search();
@@ -38,5 +40,12 @@ public class TestScenarios {
         client.rent(new int[]{2,4});
 
         client.confirmedOrder();
+    }
+
+    public static void client3() {
+        System.out.println("--- Client 3 start making order ---");
+        Client client = new Client();
+        client.getMakeOrder(FabricProvider.FLY_TICKETS);
+        client.search();
     }
 }

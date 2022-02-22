@@ -3,6 +3,7 @@ package services;
 
 import interfaces.OrderAbstractFactory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,14 +30,20 @@ public class OrderBuilderService {
     }
 
     public void  getAll(){
-        for (Object o : factory.getAll()) {
-            System.out.println(o);
+        System.out.println("Fetch available data!");
+        Map<String, ArrayList<Integer>> arrayListMap = factory.getAll();
+        for (Map.Entry<String, ArrayList<Integer>> entry : arrayListMap.entrySet()) {
+            System.out.print("\"" + entry.getKey() + "\" free slots: ");
+            for (Object slot: entry.getValue()) {
+                System.out.print(slot + " ");
+            }
+            System.out.println();
         }
     }
 
     public void confirmedOrder() {
         System.out.print("Order for: ");
-        for (Map.Entry<String, Object> entry :orderList.entrySet()) {
+        for (Map.Entry<String, Object> entry : orderList.entrySet()) {
             System.out.print("\"" + entry.getKey() + "\" ");
         }
         System.out.print("confirmed!\n\n\n");

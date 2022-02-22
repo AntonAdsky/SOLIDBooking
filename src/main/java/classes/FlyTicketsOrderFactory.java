@@ -2,10 +2,14 @@ package classes;
 
 import classes.flyTickets.FlyTicketOne;
 import classes.flyTickets.FlyTicketTwo;
+import classes.hotels.HotelOne;
+import classes.hotels.HotelTwo;
 import interfaces.FlyTicket;
 import interfaces.OrderAbstractFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FlyTicketsOrderFactory implements OrderAbstractFactory {
     FlyTicket chosenFlyTicket = null;
@@ -23,10 +27,10 @@ public class FlyTicketsOrderFactory implements OrderAbstractFactory {
     }
 
     @Override
-    public ArrayList<String>getAll() {
-        ArrayList<String> flyTickets = new ArrayList<>();
-        flyTickets.add(FlyTicketOne.name);
-        flyTickets.add(FlyTicketTwo.name);
+    public Map<String, ArrayList<Integer>> getAll() {
+        Map<String, ArrayList<Integer>> flyTickets = new HashMap();
+        flyTickets.put(FlyTicketOne.name, FlyTicketOne.getInstance().getFree());
+        flyTickets.put(FlyTicketTwo.name, FlyTicketTwo.getInstance().getFree());
         return flyTickets;
     }
 

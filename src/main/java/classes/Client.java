@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Client {
     OrderBuilderService service = new OrderBuilderService();
 
-    // POST makeOrder
+    // GET makeOrder
     public void getMakeOrder(String fabricName) {
         OrderAbstractFactory factory = (Objects.requireNonNull(FabricProvider.getOrder(fabricName)));
         service.makeOrder(factory);
