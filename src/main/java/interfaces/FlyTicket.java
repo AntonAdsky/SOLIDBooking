@@ -1,6 +1,9 @@
 package interfaces;
 
+import java.util.ArrayList;
+
 public interface FlyTicket {
-    String getName();
     int getPrice();
+    void rent(int number);
+    ArrayList<Integer> getFree();
 }

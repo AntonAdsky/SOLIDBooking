@@ -2,16 +2,20 @@ package classes.flyTickets;
 
 import interfaces.FlyTicket;
 
-public class FlyTicketTwo implements FlyTicket {
+public class FlyTicketTwo extends FlyTicketController {
+    private static FlyTicket INSTANCE;
     public static String name = "FlyTicketTwo";
 
-    @Override
-    public String getName() {
-        return name;
+
+    private FlyTicketTwo() {
+        seats = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        price = 250;
     }
 
-    @Override
-    public int getPrice() {
-        return 0;
+    public static FlyTicket getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new FlyTicketTwo();
+        }
+        return INSTANCE;
     }
 }

@@ -1,33 +1,19 @@
 package classes.hotels;
 
-import interfaces.Hotel;
-
-public class HotelOne implements Hotel {
+public class HotelOne extends HotelController {
+    private static HotelOne INSTANCE;
     public static String name = "Hotel One";
-    int roomPrice = 5;
-    int[] rooms = new int[]{0,0,0,0};
 
-    @Override
-    public String getName() {
-        return name;
+    private HotelOne() {
+        price = 5;
+        rooms = new int[]{0, 0, 0, 0};
     }
 
-    @Override
-    public int getRoomPrice() {
-        return roomPrice;
-    }
-
-    @Override
-    public int getRoomNumber() {
-        for (int i = 0; i < rooms.length - 1; i++) {
-            if(rooms[i] == 0) {
-                return i + 1;
-            }
+    public static HotelOne getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HotelOne();
         }
-        return 0;
+        return INSTANCE;
     }
 
-    public int getRooms() {
-        return rooms.length;
-    }
 }

@@ -1,17 +1,21 @@
 package classes.flyTickets;
 
-import interfaces.FlyTicket;
 
-public class FlyTicketOne implements FlyTicket {
+public class FlyTicketOne extends FlyTicketController {
+    private static FlyTicketOne INSTANCE;
     public static String name = "FlyTicketOne";
 
-    @Override
-    public String getName() {
-        return name;
+
+    private FlyTicketOne() {
+        seats = new int[]{0, 0};
+        price = 1000;
     }
 
-    @Override
-    public int getPrice() {
-        return 0;
+    public static FlyTicketOne getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new FlyTicketOne();
+        }
+        return INSTANCE;
     }
+
 }

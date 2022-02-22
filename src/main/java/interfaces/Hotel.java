@@ -1,7 +1,9 @@
 package interfaces;
 
+import java.util.ArrayList;
+
 public interface Hotel {
-    String getName();
-    int getRoomPrice();
-    int getRoomNumber();
+    int getPrice();
+    void rent(int number);
+    ArrayList<Integer> getFree();
 }

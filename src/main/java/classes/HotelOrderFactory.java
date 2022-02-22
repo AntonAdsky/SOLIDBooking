@@ -12,12 +12,29 @@ public class HotelOrderFactory implements OrderAbstractFactory {
     public Hotel createOrder(String hotel) {
 
         if(hotel.equalsIgnoreCase(HotelOne.name)) {
-            chosenHotel = new HotelOne();
+            chosenHotel = HotelOne.getInstance();
         }
         if(hotel.equalsIgnoreCase(HotelTwo.name)) {
-            chosenHotel = new HotelTwo();
+            chosenHotel = HotelTwo.getInstance();;
         }
         return chosenHotel;
+    }
+
+
+    @Override
+    public void searchFree() {
+        System.out.print("Searching free rooms: ");
+        for (Integer room : chosenHotel.getFree()) {
+            System.out.print(room + 1 + " ");
+        }
+        System.out.println();
+    }
+
+    @Override
+    public void rent(int[] number) {
+        for (int i = 0; i < number.length; i++) {
+            chosenHotel.rent(number[i] - 1);
+        }
     }
 
 }
