@@ -10,7 +10,7 @@ public class TestScenarios {
     public static void  client1() {
         System.out.println("--- Client 1 start making order ---");
         Client client = new Client();
-        client.getMakeOrder(FabricProvider.HOTEL);
+        client.getMakeOrder(FabricProvider.Fabrics.HOTEL);
         client.search();
 
         client.setProduct(HotelOne.name);
@@ -28,7 +28,7 @@ public class TestScenarios {
     public static void client2() {
         System.out.println("--- Client 2 start making order ---");
         Client client = new Client();
-        client.getMakeOrder(FabricProvider.FLY_TICKETS);
+        client.getMakeOrder(FabricProvider.Fabrics.FLY_TICKETS);
         client.search();
 
         client.setProduct(FlyTicketTwo.name);
@@ -45,7 +45,7 @@ public class TestScenarios {
     public static void client3() {
         System.out.println("--- Client 3 start making order ---");
         Client client = new Client();
-        client.getMakeOrder(FabricProvider.FLY_TICKETS);
+        client.getMakeOrder(FabricProvider.Fabrics.FLY_TICKETS);
         client.search();
     }
 }

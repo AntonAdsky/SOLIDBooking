@@ -2,8 +2,6 @@ package classes;
 
 import classes.flyTickets.FlyTicketOne;
 import classes.flyTickets.FlyTicketTwo;
-import classes.hotels.HotelOne;
-import classes.hotels.HotelTwo;
 import interfaces.FlyTicket;
 import interfaces.OrderAbstractFactory;
 
