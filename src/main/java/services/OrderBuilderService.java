@@ -1,6 +1,7 @@
 package services;
 
 
+import interfaces.Order;
 import interfaces.OrderAbstractFactory;
 
 import java.util.ArrayList;
@@ -9,24 +10,35 @@ import java.util.Map;
 
 public class OrderBuilderService {
 
-    private OrderAbstractFactory factory;
-    Map<String, Object> orderList = new HashMap<>();
+    private OrderAbstractFactory<Order> factory;
+    private final Map<String, Order> orderList = new HashMap<>();
+    private String name;
 
-    public void makeOrder(OrderAbstractFactory factory) {
+    public void makeOrder(OrderAbstractFactory<Order> factory) {
         this.factory = factory;
     }
 
     public void set(String name) {
+        this.name = name;
         orderList.put(name, factory.createOrder(name));
         System.out.println("Make order for " + name);
     }
 
     public void searchFree() {
-        factory.searchFree();
+        System.out.println("Searching free rooms: ");
+        for (Map.Entry<String, Order> entry : orderList.entrySet()) {
+            System.out.print(entry.getKey() + ": ");
+            for (int free: entry.getValue().getFree()) {
+                System.out.print(free + 1 + " ");
+            }
+            System.out.println();
+        }
     }
 
     public void rent(int[] number) {
-        factory.rent(number);
+        for (int n: number) {
+            orderList.get(name).rent(n);
+        }
     }
 
     public void  getAll(){
@@ -43,7 +55,7 @@ public class OrderBuilderService {
 
     public void confirmedOrder() {
         System.out.print("Order for: ");
-        for (Map.Entry<String, Object> entry : orderList.entrySet()) {
+        for (Map.Entry<String, Order> entry : orderList.entrySet()) {
             System.out.print("\"" + entry.getKey() + "\" ");
         }
         System.out.print("confirmed!\n\n\n");

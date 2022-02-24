@@ -1,9 +1,5 @@
 package interfaces;
 
-import java.util.ArrayList;
+public interface FlyTicket extends Order {
 
-public interface FlyTicket {
-    int getPrice();
-    void rent(int number);
-    ArrayList<Integer> getFree();
 }

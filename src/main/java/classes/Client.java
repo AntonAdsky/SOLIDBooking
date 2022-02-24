@@ -1,17 +1,21 @@
 package classes;
 
+import interfaces.Order;
 import interfaces.OrderAbstractFactory;
 import services.OrderBuilderService;
-
-import java.util.Objects;
 
 public class Client {
     OrderBuilderService service = new OrderBuilderService();
 
     // GET makeOrder
     public void getMakeOrder(FabricProvider.Fabrics fabricName) {
-        OrderAbstractFactory factory = (Objects.requireNonNull(FabricProvider.getOrder(fabricName)));
-        service.makeOrder(factory);
+        try {
+            OrderAbstractFactory<Order> factory = (FabricProvider.getOrder(fabricName));
+            service.makeOrder(factory);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     // GET search

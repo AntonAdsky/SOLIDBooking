@@ -1,12 +1,16 @@
-package classes.hotels;
+package classes.Order.hotels.data;
 
-public class HotelOne extends HotelController {
+import classes.Order.Order;
+import interfaces.Hotel;
+
+public class HotelOne extends Order implements Hotel {
     private static HotelOne INSTANCE;
     public static String name = "Hotel One";
 
     private HotelOne() {
         price = 5;
-        rooms = new int[]{0, 0, 0, 0};
+        slots = new int[]{0, 0, 0, 0};
+        slotName = "room";
     }
 
     public static HotelOne getInstance() {

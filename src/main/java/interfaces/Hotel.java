@@ -1,9 +1,5 @@
 package interfaces;
 
-import java.util.ArrayList;
+public interface Hotel extends Order {
 
-public interface Hotel {
-    int getPrice();
-    void rent(int number);
-    ArrayList<Integer> getFree();
 }

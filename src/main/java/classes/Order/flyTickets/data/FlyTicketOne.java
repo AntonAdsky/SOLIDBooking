@@ -1,14 +1,18 @@
-package classes.flyTickets;
+package classes.Order.flyTickets.data;
 
 
-public class FlyTicketOne extends FlyTicketController {
+import classes.Order.Order;
+import interfaces.FlyTicket;
+
+public class FlyTicketOne extends Order implements FlyTicket {
     private static FlyTicketOne INSTANCE;
     public static String name = "FlyTicketOne";
 
 
     private FlyTicketOne() {
-        seats = new int[]{0, 0};
+        slots = new int[]{0, 0};
         price = 1000;
+        slotName = "King's seat";
     }
 
     public static FlyTicketOne getInstance() {
@@ -17,5 +21,4 @@ public class FlyTicketOne extends FlyTicketController {
         }
         return INSTANCE;
     }
-
 }
